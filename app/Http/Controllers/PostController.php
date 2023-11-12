@@ -99,5 +99,61 @@ Post::create($post);
         $post->restore();
         dump("restored");
     }
-// 1
+
+    //Если запись уже есть, то ничего не делает. Если записи нет - создает ее.
+    public function firstOrCreate() {
+        $post = Post::find(1);
+        dump($post->title);
+
+        dump("firstOrCreate");
+
+        $anotherPost = [
+                'title' => 'firstOrCreate',
+                'content' => 'Некий текст 3',
+                'image' => 'Image3',
+                'likes' => '22',
+                'is_Published' => '1',
+        ];
+
+        $post = Post::firstOrCreate([
+            'title' => 'firstOrCreate1',
+        ], [
+            'title' => 'firstOrCreate1',
+            'content' => 'firstOrCreate Некий текст 3',
+            'image' => 'Image3',
+            'likes' => '22',
+            'is_Published' => '1',
+        ]);
+        dump($post->content);
+        dump("finished");
+    }
+
+    //Если запись уже есть, то обновляет ее. Если записи нет - создает ее.
+    public function updateOrCreate() {
+        $post = Post::find(1);
+        dump($post->title);
+
+        dump("updateOrCreate");
+
+        $anotherPost = [
+            'title' => 'updateOrCreate',
+            'content' => 'Некий текст 4',
+            'image' => 'Image4',
+            'likes' => '23',
+            'is_Published' => '1',
+        ];
+
+        $post = Post::updateOrCreate([
+            'title' => 'updateOrCreate',
+        ], [
+            'title' => 'updateOrCreate',
+            'content' => 'Некий текст 3 update',
+            'image' => 'Image3',
+            'likes' => '22',
+            'is_Published' => '1',
+        ]);
+        dump($post->content);
+        dump("finished");
+    }
+
 }
