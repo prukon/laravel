@@ -12,6 +12,7 @@ class PostController extends Controller
 {
     public function index() {
 
+
         $onePost = Post::find(1);
 //        dd($onePost);
         dump($onePost);
@@ -32,14 +33,14 @@ dump($somePost);
 $postsArr =[
     [
     'title' => 'Мой заголовок',
-    'content' => 'Некий текст',
+    'post_content' => 'Некий текст',
     'image' => 'Image',
     'likes' => '2',
     'is_Published' => '1',
 ],
     [
      'title' => 'Мой заголовок2',
-     'content' => 'Некий текст2',
+     'post_content' => 'Некий текст2',
      'image' => 'Image2',
      'likes' => '4',
      'is_Published' => '1',
