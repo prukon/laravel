@@ -28,6 +28,18 @@ return view("posts", compact("allPosts"));
 
   }
 
+//  public function about(){
+//      $allPosts = Post::all();
+//      return view("about", compact("allPosts"));
+//  }
+//
+//    public function contacts(){
+//        $allPosts = Post::all();
+//        return view("contacts", compact("allPosts"));
+//    }
+
+
+
     public function create() {
 $postsArr =[
     [
