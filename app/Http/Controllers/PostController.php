@@ -12,20 +12,19 @@ class PostController extends Controller
 {
     public function index() {
 
-
+//Получить запись по id
         $onePost = Post::find(1);
-//        dd($onePost);
-        dump($onePost);
 
+//        Получить все записи
         $allPosts = Post::all();
-//        dd($allPosts);
-dump($allPosts);
-foreach ($allPosts as $post) {
-    dump($post->title);
-}
+        dump($allPosts);
+//foreach ($allPosts as $post) {
+//}
 
+//Получить записи по условию
         $somePost = Post::where('is_published', 1)->get();
-dump($somePost);
+
+return view("posts", compact("allPosts"));
 
   }
 
@@ -33,14 +32,14 @@ dump($somePost);
 $postsArr =[
     [
     'title' => 'Мой заголовок',
-    'post_content' => 'Некий текст',
+    'content' => 'Некий текст',
     'image' => 'Image',
     'likes' => '2',
     'is_Published' => '1',
 ],
     [
      'title' => 'Мой заголовок2',
-     'post_content' => 'Некий текст2',
+     'content' => 'Некий текст2',
      'image' => 'Image2',
      'likes' => '4',
      'is_Published' => '1',
